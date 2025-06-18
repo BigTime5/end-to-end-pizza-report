@@ -378,7 +378,7 @@ HAVING COUNT(*) > 1;
 
 - What does the dashboard look like?
 
-![GIF of Power BI Dashboard](Pizza_report.gif)
+![GIF of Power BI Dashboard](dashboard_pizza.gif)
 
 This shows the Top UK Youtubers in 2024 so far. 
 
