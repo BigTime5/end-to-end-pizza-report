@@ -494,7 +494,7 @@ FROM pizza_sales
 GROUP BY pizza_category
 ```
 ### Output
-![% of Sales by Pizza Category](assets/images/%_of_sales_by_pizza_category.jpg).
+![% of Sales by Pizza Category](assets/images/sales_by_pizza_category.jpg).
 
 E. % of Sales by Pizza Size
 ```sql
@@ -505,7 +505,7 @@ GROUP BY pizza_size
 ORDER BY pizza_size
 ```
 ### Output
-![% of Sales by Pizza Size](assets/images/%_of_sales_by_pizza_size.jpg).
+![% of Sales by Pizza Size](assets/images/sales_by_pizza_size.jpg).
 
 F. Total Pizzas Sold by Pizza Category
 ```sql
