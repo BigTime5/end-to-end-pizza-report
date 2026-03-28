@@ -1,7 +1,7 @@
 # Data Portfolio: Excel to Power BI - Pizza Sales Report
 
+<img width="1080" height="864" alt="image" src="https://github.com/user-attachments/assets/305fc4ae-a73d-44ff-8f30-0c4512c72c53" />
 
-![excel-to-powerbi-animated-diagram](assets/images/kaggle_to_powerbi.gif)
 
 
 
