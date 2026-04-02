@@ -113,7 +113,7 @@ export function AnalysisDashboard({ client }: AnalysisDashboardProps) {
           {client.client_id} Analysis
         </h2>
         <div className="flex gap-2">
-          {client.tax_years.sort((a, b) => b - a).map((year) => (
+          {[...client.tax_years].sort((a, b) => b - a).map((year) => (
             <Button
               key={year}
               size="sm"

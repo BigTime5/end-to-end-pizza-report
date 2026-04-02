@@ -137,8 +137,8 @@ def generate_analysis_pdf(
             pdf.cell(35, 6, f"${comp.prior_year:,.0f}", border=1, align="R")
             pdf.cell(35, 6, f"${comp.current_year:,.0f}", border=1, align="R")
 
-            sign = "+" if comp.change_amount >= 0 else ""
-            pdf.cell(30, 6, f"{sign}${comp.change_amount:,.0f}", border=1, align="R")
+            sign = "+" if comp.change_amount >= 0 else "-"
+            pdf.cell(30, 6, f"{sign}${abs(comp.change_amount):,.0f}", border=1, align="R")
             pdf.cell(
                 25, 6,
                 f"{sign}{comp.change_percent:.1f}%",

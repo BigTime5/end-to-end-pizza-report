@@ -32,16 +32,15 @@ async def upload_csv(file: UploadFile = File(...)) -> UploadResponse:
     if not records:
         raise HTTPException(status_code=400, detail="No valid records found in CSV")
 
-    tax_years: set[int] = set()
-    client_id = records[0].client_id
+    client_years: dict[str, set[int]] = {}
     for record in records:
         store.add_record(record)
-        tax_years.add(record.tax_year)
-        client_id = record.client_id
+        client_years.setdefault(record.client_id, set()).add(record.tax_year)
 
+    client_ids = list(client_years.keys())
     return UploadResponse(
-        client_id=client_id,
+        client_id=client_ids[0],
         records_count=len(records),
-        tax_years=sorted(tax_years),
-        message=f"Successfully uploaded {len(records)} records",
+        tax_years=sorted(client_years[client_ids[0]]),
+        message=f"Successfully uploaded {len(records)} records for {len(client_ids)} client(s)",
     )
