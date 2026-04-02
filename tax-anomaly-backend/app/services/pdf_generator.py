@@ -141,7 +141,7 @@ def generate_analysis_pdf(
             pdf.cell(30, 6, f"{sign}${abs(comp.change_amount):,.0f}", border=1, align="R")
             pdf.cell(
                 25, 6,
-                f"{sign}{comp.change_percent:.1f}%",
+                f"{sign}{abs(comp.change_percent):.1f}%",
                 border=1, align="R",
             )
             pdf.ln()
