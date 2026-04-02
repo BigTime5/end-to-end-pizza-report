@@ -38,9 +38,11 @@ async def upload_csv(file: UploadFile = File(...)) -> UploadResponse:
         client_years.setdefault(record.client_id, set()).add(record.tax_year)
 
     client_ids = list(client_years.keys())
+    first_client = client_ids[0]
+    first_client_records = sum(1 for r in records if r.client_id == first_client)
     return UploadResponse(
-        client_id=client_ids[0],
-        records_count=len(records),
-        tax_years=sorted(client_years[client_ids[0]]),
+        client_id=first_client,
+        records_count=first_client_records,
+        tax_years=sorted(client_years[first_client]),
         message=f"Successfully uploaded {len(records)} records for {len(client_ids)} client(s)",
     )
