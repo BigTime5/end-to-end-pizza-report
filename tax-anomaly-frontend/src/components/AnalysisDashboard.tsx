@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { BarChart3, Download, Play, AlertTriangle, Shield, TrendingUp } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -45,6 +45,12 @@ export function AnalysisDashboard({ client }: AnalysisDashboardProps) {
   );
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    setAnalyses({});
+    setActiveYear(Math.max(...client.tax_years));
+    setError(null);
+  }, [client.client_id, client.tax_years]);
 
   const currentAnalysis = analyses[activeYear];
 
