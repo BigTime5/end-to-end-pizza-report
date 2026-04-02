@@ -46,11 +46,12 @@ export function AnalysisDashboard({ client }: AnalysisDashboardProps) {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
+  const taxYearsKey = client.tax_years.join(',');
   useEffect(() => {
     setAnalyses({});
     setActiveYear(Math.max(...client.tax_years));
     setError(null);
-  }, [client.client_id, client.tax_years]);
+  }, [client.client_id, taxYearsKey]);
 
   const currentAnalysis = analyses[activeYear];
 
